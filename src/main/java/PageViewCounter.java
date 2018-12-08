@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "PageViewCounter", urlPatterns = "/count")
 public class PageViewCounter extends HttpServlet {
 
-    public int counter = 0;
+    private int counter = 0;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
