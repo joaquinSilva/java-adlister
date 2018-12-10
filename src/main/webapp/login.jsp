@@ -47,8 +47,10 @@
     <style>
         <%@include file="login.css"%>
     </style>
+    <jsp:include page="partials/head.jsp" />
 </head>
 <body>
+<jsp:include page="partials/navbar.jsp" />
     <main>
         <form action="login.jsp" method="POST">
             <fieldset class="width-80">
@@ -64,5 +66,6 @@
             </fieldset>
         </form>
     </main>
+<jsp:include page="partials/footer.jsp" />
 </body>
 </html>
