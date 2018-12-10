@@ -7,6 +7,40 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<%
+//    String userName = (request.getParameter("username") != null) ? request.getParameter("username") : "";
+//    String passWord = (request.getParameter("password") != null) ? request.getParameter("password") : "";
+//
+//    String methodType = request.getMethod();
+//
+//    if (methodType.equalsIgnoreCase("post")) {
+//        if ((userName.equals("admin"))
+//                && (passWord.equals("password"))) {
+//            response.sendRedirect("profile.jsp");
+//        } else {
+//            response.sendRedirect("login.jsp");
+//        }
+//    }
+
+
+
+    String userName = (request.getParameter("username"));
+    String passWord = (request.getParameter("password"));
+
+    String methodType = request.getMethod();
+
+    if (methodType.equalsIgnoreCase("post")) {
+        if (userName != null && passWord != null)
+        if ((userName.equals("admin")) && passWord.equals("password")) {
+            response.sendRedirect("profile.jsp");
+        }
+    }
+
+%>
+
+
 <html>
 <head>
     <title>Login</title>
@@ -16,7 +50,7 @@
 </head>
 <body>
     <main>
-        <form action="#" method="post">
+        <form action="login.jsp" method="POST">
             <fieldset class="width-80">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label><br>
@@ -30,11 +64,5 @@
             </fieldset>
         </form>
     </main>
-
-    <%--if request.getMethod() == post--%>
-
-<%--<c:when test='${(username == "admin") && password == "password"}'>--%>
-
-<%--</c:when>--%>
 </body>
 </html>
