@@ -4,18 +4,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "ViewProfileServlet", urlPatterns = "/profile")
-public class ViewProfileServlet extends HttpServlet {
-    public ViewProfileServlet() {
+@WebServlet(name = "ViewAdsServlet", urlPatterns = "/ads")
+public class ViewAdsServlet extends HttpServlet {
+
+    public ViewAdsServlet() {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name1 = request.getParameter("name");
-        request.setAttribute("name", name1);
-        request.getRequestDispatcher("/profile.jsp").forward(request, response);
+
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        Ads dao = DaoFactory.getAdsDao();
+        List<Ad> ads = dao.all();
+        request.setAttribute("ads", ads);
+        request.getRequestDispatcher("ads/index.jsp").forward(request, response);
     }
+
+
+
+
 }
