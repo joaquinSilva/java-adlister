@@ -26,4 +26,4 @@ values  (1, 'Awesome Ad', 'This is the best ad ever!'),
 
 
 # SELECT * FROM users;
-# SELECT * FROM ads;
+SELECT * FROM ads;
