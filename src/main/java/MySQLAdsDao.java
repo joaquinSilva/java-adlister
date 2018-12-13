@@ -6,15 +6,11 @@ import com.mysql.cj.jdbc.Driver;
 
 public class MySQLAdsDao implements Ads {
 
-    DriverManager.registerDriver(new Driver());
-
     private Connection connection;
 
-    private Config config = new Config;
-
-    public MySQLAdsDao(Connection connection, Config config) {
-        this.connection = connection;
+    public MySQLAdsDao(Config config) {
         try {
+            DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                     config.getUrl(),
                     config.getUser(),
@@ -23,7 +19,6 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
 
     }
 
