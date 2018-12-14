@@ -50,8 +50,8 @@ public class MySQLAdsDao implements Ads {
         String title = ad.getTitle();
         String description = ad.getDescription();
         Long userId = ad.getUserId();
-        String insertQuery = String.format("INSERT INTO ads(id, user_id, title, description)" +
-                "VALUES (%d, %d, '%s', '%s')", lastInsertedID, userId, title, description);
+        String insertQuery = String.format("INSERT INTO ads(user_id, title, description)" +
+                "VALUES (%d, '%s', '%s')", userId, title, description);
         Statement statement = null;
         try {
             statement = connection.createStatement();
